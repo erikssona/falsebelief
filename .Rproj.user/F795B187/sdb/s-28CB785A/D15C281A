@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1476492428313.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D15C281A",
+    "lastKnownWriteTime" : 1,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "lr44kiw6dy",
+        "caption" : "Interesting",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Interesting&cache_key=lr44kiw6dy",
+        "displayedObservations" : 324,
+        "environment" : "",
+        "object" : "Interesting",
+        "totalObservations" : 324,
+        "variables" : 9
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

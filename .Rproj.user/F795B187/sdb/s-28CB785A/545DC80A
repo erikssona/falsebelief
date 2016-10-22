@@ -1,0 +1,18 @@
+{
+    "contents" : "## Script No. 2 ##\n# Makes adjustments\n\nsource('~/Desktop/false belief/Code/falsebelief.R')\nlibrary(Hmisc)\n\n#Standardize data\n## Ravens scores vary with age:\ncor.test(EverythingClean$Ravens, EverythingClean$Age)\n\n#Deal w/ 8 missing values\n# We decided not to impute missing values\n#Ravens.Imputed <- impute(EverythingClean$Ravens, mean)\n#EverythingClean <- cbind(EverythingClean, Ravens.Imputed)\n#\nEverythingClean <- EverythingClean[complete.cases(EverythingClean$Ravens),]\n\n## Fit model:\nlm1<- lm(Ravens ~ Age, data= EverythingClean)\n## Now residuals are not correlated with age:\ncor.test(lm1$residuals, EverythingClean$Age)\n\n#Add to Ravens.Age to Everything df\nRavens.Age <- lm1$residuals\nEverythingClean <- cbind(EverythingClean, Ravens.Age)\n\n## SCQ scores vary with gender:\ncor.test(EverythingClean$SCQ, as.numeric(EverythingClean$Gender))\n\n#Deal w/ 32 missing values\nSCQ.Imputed <- impute(EverythingClean$SCQ, mean)\nEverythingClean <- cbind(EverythingClean, SCQ.Imputed)\n\n## Fit model:\nlm1<- lm(SCQ.Imputed ~ as.numeric(Gender), data= EverythingClean)\n## Now residuals are not correlated with gender:\ncor.test(lm1$residuals, as.numeric(EverythingClean$Gender))\n\n#Add to SCQ.Gender to Everything df\nSCQ.Gender <- lm1$residuals\nEverythingClean <- cbind(EverythingClean, SCQ.Gender)\n\n\n## MFB scores vary with age:\ncor.test(as.numeric(EverythingClean$MFB.Both), EverythingClean$Age)\n\n## Fit model:\nlm1<- lm(as.numeric(MFB.Both) ~ Age, data= EverythingClean)\n## Now residuals are not correlated with age:\ncor.test(lm1$residuals, EverythingClean$Age)\n\n#Add to Ravens.Age to Everything df\nMFB.Age <- lm1$residuals\nEverythingClean <- cbind(EverythingClean, MFB.Age)\n",
+    "created" : 1475272884928.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1851266344",
+    "id" : "545DC80A",
+    "lastKnownWriteTime" : 1476334338,
+    "path" : "~/Desktop/false belief/Code/standardize.R",
+    "project_path" : "standardize.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,18 @@
+{
+    "contents" : "#ratio <- EverythingClean$HitTime/EverythingClean$TimeSpentGpc\n\nEverythingClean <- cbind(EverythingClean, Ravens.Age)\nEFAdata <- subset(EverythingClean, select = c(Ravens.Age,\n                                              Diagnosis,\n                                              TimeSpentGpc, SRS.T, SCQ, ToM.Both))\n#EFAdata <- cbind(EFAdata, ratio)\n#EFAdata$Age <- as.numeric(EFAdata$Age)\n#EFAdata$Gender <- as.numeric(EFAdata$Gender)\nEFAdata$Diagnosis <- as.numeric(EFAdata$Diagnosis)\nEFAdata$ToM.Both <- as.numeric(EFAdata$ToM.Both)\n#EFAdata$TimeSpentFpc <- as.numeric(EFAdata$TimeSpentFpc)\nEFAdata$TimeSpentGpc <- as.numeric(EFAdata$TimeSpentGpc)\n\n#EFAdata$HitTime <- NULL\n#EFAdata$TimeSpentFpc <- NULL\n\n\ncorrelations <- cor(na.omit(EFAdata))\nKMO(correlations)\n\n\n#PCA on Assessment Scores\npca1 = prcomp(na.omit(Interesting))\nscreeplot(pca1)\npca1 <- prcomp(Interesting, nfactors=3)\nplot(pca1)\n\npca2 = prcomp(na.omit(SRSadj[2:9]))\nscreeplot(pca2)\npca2 <- pca(Interesting, nfactors=5)\nplot(pca2)\n\n",
+    "created" : 1474913051228.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "767722165",
+    "id" : "9E01088A",
+    "lastKnownWriteTime" : 1475273728,
+    "path" : "~/Desktop/false belief/Code/efa.R",
+    "project_path" : "efa.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
